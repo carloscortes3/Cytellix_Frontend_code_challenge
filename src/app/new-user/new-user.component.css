@@ -1,0 +1,14 @@
+mat-card {
+  width: 30%;
+  margin: auto;
+}
+
+mat-form-field,
+input{
+  width: 90%;
+  margin: auto;
+}
+
+button{
+  margin:  1rem;
+}

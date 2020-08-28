@@ -1,0 +1,28 @@
+
+<mat-card>
+  <mat-card-title>
+    <h2>Create New User</h2>
+  </mat-card-title>
+  <form (submit)="addUser($event)">
+    <mat-form-field>
+      <input matInput type="email" placeholder="Email" id="email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" id="password">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Company" id="company">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Role</mat-label>
+      <mat-select [(value)]="role" id="role">
+          <mat-option value="Admin">Admin</mat-option>
+          <mat-option value="Viewer">Viewer</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit" value="Submit">Submit</button>
+    <a mat-raised-button color="accent" type="submit" value="Home" routerLink="/">Home</a>
+
+
+  </form>
+</mat-card>
