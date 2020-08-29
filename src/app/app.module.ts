@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatSelectModule } from '@angular/material/select'
+import {MatIconModule} from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -38,6 +39,7 @@ import { CreateUserService} from './create-user.service'
     MatCardModule,
     MatToolbarModule,
     MatSelectModule,
+    MatIconModule,
     RouterModule.forRoot([
       {
         path: 'login',

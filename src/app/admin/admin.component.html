@@ -1,1 +1,49 @@
-<p>admin works!</p>
+<mat-toolbar color="primary">
+  <button mat-button (click)='userDisplay()'>
+    myProfile
+  </button>
+  <button mat-button (click)='companyDisplay()'>
+    companyInfo
+  </button>
+  <button mat-button (click)="logout()" id="logoutBtn">
+    Logout
+  </button>
+</mat-toolbar>
+<mat-card>
+  <mat-card-title>
+    <h2 [innerHTML]="output[4]"></h2>
+  </mat-card-title>
+  <hr>
+  <mat-card-subtitle></mat-card-subtitle>
+  <mat-card-content>
+    <h4 id="one" [innerHTML]="output[0]"></h4>
+    <h4 id="two" [innerHTML]="output[1]"></h4>
+    <h4 id="three" [innerHTML]="output[2]"></h4>
+    <h4 id="four" [innerHTML]="output[3]"></h4>
+  </mat-card-content>
+  <mat-card-actions>
+    <!--<button mat-raised-button color="primary" type="button" value="Edit" id="editBtn">Edit</button>-->
+  </mat-card-actions>
+</mat-card>
+<span class="example-spacer"></span>
+<mat-card id="bottomCard">
+  <mat-card-title>
+    <h2>Create New Company</h2>
+  </mat-card-title>
+  <hr>
+  <form (submit)="addCompany($event)">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Company Name" id="c_name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Company Address" id="c_address">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Number of Customers" id="c_customers">
+    </mat-form-field>
+    <mat-card-actions>
+    <button mat-raised-button color="primary" type="submit" value="Submit">Add Company</button>
+  </mat-card-actions>
+  </form>
+
+</mat-card>

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateUserService } from '../create-user.service'
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router'
 
 @Component({
