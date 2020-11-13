@@ -22,7 +22,6 @@ export class NewUserComponent implements OnInit {
     const password = target.querySelector('#password').value
     const company = target.querySelector('#company').value
     this.create_u.createUser(email, password, company, this.role).subscribe((data)=>{
-      console.log(data)
       if (!data[0].message){
         this.router.navigate(['/'])
         window.alert("You successfully created your account!")

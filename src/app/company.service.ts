@@ -6,6 +6,13 @@ interface create_company_data {
   address: String,
   customer_quantity: String
 }
+
+interface create_user_data {
+  email: String,
+  company: StringConstructor,
+  role: String,
+  authorized: String
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -23,5 +30,13 @@ export class CompanyService {
       address,
       customer_quantity
     })
+  }
+
+  getUserInfo(session){
+    const headers = {
+      'session-token': session,
+    }
+
+    return this.http.get<create_user_data>(`http://localhost:5000/api/session/user_data`, { headers });
   }
 }

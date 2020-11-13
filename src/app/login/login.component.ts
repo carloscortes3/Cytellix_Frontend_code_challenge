@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
     this.Auth.getUserDetails(username, password).subscribe(data =>{
       if(!data[0].message){
         localStorage.setItem('session', data[0].session);
-        localStorage.setItem('user_state', JSON.stringify(data[0]));
         this.router.navigate(['admin'])
         this.Auth.setLoggedIn(true)
 
@@ -30,6 +29,5 @@ export class LoginComponent implements OnInit {
         window.alert(data[0].message)
       }
     })
-    console.log(username, password)
   }
 }

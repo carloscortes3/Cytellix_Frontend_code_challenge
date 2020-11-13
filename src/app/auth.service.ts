@@ -2,11 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
 interface auth_data {
-  "_id": String,
-  "email": String,
-  "role": String,
-  "company": String,
-  "authorized": boolean,
   "session": String
 }
 
