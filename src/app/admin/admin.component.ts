@@ -19,19 +19,17 @@ export class AdminComponent implements OnInit {
   constructor(private comService: CompanyService, private router: Router) { }
 
   ngOnInit(): void {
-    this.user_state = JSON.parse(localStorage.getItem('user_state'))
-    console.log(this.user_state);
-    this.comService.getCompanyInfo(this.user_state.company).subscribe((data) =>{
-      if(!data[0].message){
-        console.log(data);
-        this.company_state = data[0];
-        this.companyDisplay()
-      }else{
-        this.router.navigate(['/'])
-      }
-    })
-
-    console.log(this.output);
+    this.comService.getUserInfo(localStorage.getItem('session')).subscribe((data) =>{
+      this.user_state = data;
+      this.comService.getCompanyInfo(this.user_state.company).subscribe((data) =>{
+        if(!data[0].message){
+          this.company_state = data[0];
+          this.companyDisplay()
+        }else{
+          this.router.navigate(['/'])
+        }
+      })
+    });
 
   }
 
@@ -68,13 +66,11 @@ export class AdminComponent implements OnInit {
 
   addCompany(event){
     event.preventDefault()
-    console.log(event)
     const target = event.target
     const name = target.querySelector('#c_name').value
     const address = target.querySelector('#c_address').value
     const count = Number(target.querySelector('#c_customers').value)
     this.comService.createCompany(name, address, count).subscribe((data)=>{
-      console.log(data)
       if (!data[0].message){
         window.alert("You successfully added a new company to the database!!!")
         window.location.reload();

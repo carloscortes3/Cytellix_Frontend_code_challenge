@@ -19,13 +19,10 @@ export class AuthGuard implements CanActivate {
         return true
       }
       const session = localStorage.getItem('session');
-      console.log(session);
       if (session){
-        console.log("about to hit session");
         return this.ses.isLoggedIn(session).pipe(map((data)=>{
           if (!data[0].message){
             localStorage.setItem('session', data[0].session);
-            localStorage.setItem('user_state', JSON.stringify(data[0]));
             return true;
           }else{
             localStorage.clear()
